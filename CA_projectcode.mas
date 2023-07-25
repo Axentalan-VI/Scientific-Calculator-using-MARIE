@@ -1,0 +1,425 @@
+﻿Input
+Store X
+Subt One
+Skipcond 400
+Jump elseif2
+JnS Addition
+
+elseif2,Load X
+Subt Two
+Skipcond 400
+Jump elseif3
+JnS Subtraction
+
+elseif3,Load X
+Subt Three
+Skipcond 400
+Jump elseif4
+JnS Multiplication
+
+elseif4,Load X
+Subt Four
+Skipcond 400
+Jump elseif5
+JnS Division
+
+elseif5,Load X
+Subt Five
+Skipcond 400
+Jump elseif6
+JnS Max_Min
+
+elseif6,Load X
+Subt Six
+Skipcond 400
+Jump elseif7
+JnS Power
+
+elseif7,Load X
+Subt Seven
+Skipcond 400
+Jump elseif8
+JnS Factorial
+
+elseif8,Load X
+Subt Eight
+Skipcond 400
+Jump elseif9
+JnS Sin
+
+elseif9,Load X
+Subt Nine
+Skipcond 400
+Jump elseif10
+JnS Cos
+
+elseif10,Load X
+Subt Ten
+Skipcond 400
+Jump elseif11
+JnS Tan
+
+elseif11,Load X
+Subt Eleven
+Skipcond 400
+Jump else_false
+JnS Check_triangle
+
+else_false,Load Zero
+Output
+Halt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Addition,load Zero
+Input 
+Store X
+Input
+Store Y
+Load X
+Add Y
+Output
+Halt
+
+
+
+Subtraction,Load Zero
+Input 
+Store X
+Input
+Store Y
+Load X
+Subt Y
+Output
+Halt
+
+
+
+Multiplication,Load Zero
+Input 
+Store X
+Input
+Store Y
+Load Y 
+Store count
+loop, Load X
+Add multiply
+Store multiply
+Load count
+Subt One
+Store count
+Skipcond 400
+Jump loop
+Load multiply
+Output
+Halt
+
+
+Division,load Zero
+Input 
+Store X
+Input
+Store Y
+if, Load X
+Skipcond 800
+Jump endif
+then, Load X
+Subt Y
+Store X
+Load div
+Add One
+Store div
+Jump if
+endif, Load div
+Output
+Halt
+
+
+
+Max_Min,load Zero
+Input
+Store number_0f_input
+Loop1, Input
+Store num1
+if_max,Load max
+subt num1
+Skipcond 000
+Jump else_ifmin
+Load num1
+Store max
+else_ifmin,Load min
+Subt num1
+Skipcond 800
+Jump else2
+Load num1
+Store min
+else2,Load number_0f_input
+Subt One
+Store number_0f_input
+Skipcond 400
+Jump Loop1
+Load max
+Output
+Load min
+Output
+Halt
+
+
+
+
+Power,Clear
+
+/ Start of the main program 
+
+
+Input 
+Store x
+Store y
+Input 
+Subt One
+Store Count
+Jns Exp
+
+/ Ending the main program
+Load Ans 
+Output 
+End, Halt
+
+Exp, Load Zero
+Loop3, Load Count
+    Skipcond 800
+    JumpI Exp
+    JnS Multiplier
+    Load Ans
+    Store x
+    Load Count
+    Subt One
+    Store Count
+    Jump Loop3
+
+/ Start of the subroutine Multiplier
+Multiplier,Load Zero
+ 
+    Store Ans
+Loop4, Load x
+    Skipcond 800
+    JumpI Multiplier
+    Load Ans
+    Add y
+    Store Ans
+    Load x
+    Subt One
+    Store x
+    Jump Loop4
+
+    
+    
+Factorial,Load Zero
+Input 
+Store Fact 
+Fac, Load Fact 
+Store MulOpA 
+Load Sum 
+Skipcond 800 
+Load One  
+Store MulOpB 
+Load Zero 
+Store MulSum 
+Jump Mul 
+FacLoop, Load MulSum 
+Store Sum 
+Load Fact
+Subt One 
+Skipcond 800 
+Jump Finish 
+Store Fact
+Jump Fac 
+Mul, Load MulSum 
+Add MulOpB 
+Store MulSum 
+Load MulOpA 
+Subt One 
+Store MulOpA 
+Skipcond 400 
+Jump Mul 
+Jump FacLoop 
+Finish, Load Sum 
+Output 
+Halt
+
+
+Sin,Load Zero
+Input
+Store opp
+Input
+Store hyp
+if_sin, Load opp
+Skipcond 800
+Jump endif_sin
+then_sin, Load opp
+Subt hyp
+Store 	opp
+Load sin
+Add One
+Store sin
+Jump if_sin
+endif_sin, Load sin
+Output
+Halt
+
+
+Cos,Load Zero
+Input
+Store adj
+Input
+Store hyp
+if_cos, Load adj
+Skipcond 800
+Jump endif_cos
+then_cos, Load adj
+Subt hyp
+Store adj
+Load cos
+Add One
+Store cos
+Jump if_cos
+endif_cos, Load cos
+Output
+Halt
+
+
+Tan,Load Zero
+Input
+Store opp
+Input
+Store adj
+if_tan, Load opp
+Skipcond 800
+Jump endif_tan
+then_tan, Load opp
+Subt adj
+Store opp 
+Load tan
+Add One
+Store tan
+Jump if_tan
+endif_tan, Load tan
+Output
+Halt
+
+Check_triangle,Load Zero
+Input
+Store X
+Skipcond 800
+Jump False
+Input
+Store Y
+Skipcond 800
+Jump False
+Input
+Store Z
+Skipcond 800
+Jump False
+
+Load X
+Add Y
+Store num1
+Subt Z
+Store num2
+Skipcond 800
+Jump False
+
+Load X
+Add Z
+Store num1
+Subt Y
+Store num2
+Skipcond 800
+Jump False
+
+Load Y
+Add Z
+Store num1
+Subt X
+Store num2
+Skipcond 800
+Jump False
+Load One
+Output
+Halt
+
+False,Load Zero
+Output
+Halt
+
+
+
+
+
+
+
+
+
+
+Halt 
+
+
+
+
+X, DEC 0
+Y, DEC 0
+Z, DEC 0
+sum, DEC 0
+sub, DEC 0
+multiply, DEC 0
+count, DEC 0
+num1, DEC 0
+num2,DEC 0
+max, DEC 0
+min, DEC 10000
+number_0f_input, DEC 0
+div, DEC 0
+One, DEC 1
+Two, DEC 2
+Three, DEC 3
+Four, DEC 4
+Five, DEC 5
+Six, DEC 6
+Seven, DEC 7
+Eight, DEC 8
+Nine, DEC 9
+Ten, DEC 10
+Eleven, DEC 11
+Sum, DEC 0 
+MulOpA, DEC 0 
+MulOpB, dec 0
+MulSum, DEC 0
+Zero, DEC 0 
+Fact, DEC  0
+opp, DEC 0
+adj, DEC 0
+hyp, DEC 0
+sin, DEC 0
+cos, DEC 0
+tan, DEC 0
+x, Dec 2
+y, Dec 3 
+Ans, Dec 0 
+Count, Dec 0
+
+
+
+
+
